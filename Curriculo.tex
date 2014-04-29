@@ -1,0 +1,156 @@
+% (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
+% (c) 2003-2007 David J. Grant <davidgrant-at-gmail.com> http://www.davidgrant.ca
+% (c) 2008 Nathaniel Johnston <nathaniel@nathanieljohnston.com> http://www.nathanieljohnston.com
+%
+% (c) 2012 Scott Clark <sc932@cornell.edu> cam.cornell.edu/~sc932
+%
+%This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 2.5 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/2.5/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
+
+\documentclass[letterpaper,11pt]{article}
+\newlength{\outerbordwidth}
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+\usepackage[svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{tocloft}
+
+
+%-----------------------------------------------------------
+%Edit these values as you see fit
+
+\setlength{\outerbordwidth}{3pt}  % Width of border outside of title bars
+\definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
+\definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
+
+
+%-----------------------------------------------------------
+%Margin setup
+
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\tabcolsep}{0in}
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{7in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\topskip}{0in}
+\setlength{\voffset}{0.1in}
+
+
+%-----------------------------------------------------------
+%Custom commands
+\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+\newcommand{\resheading}[1]{\vspace{8pt}
+  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
+    \begin{shaded}
+\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
+    \end{shaded}
+  }\vspace{-5pt}
+}
+\newcommand{\ressubheading}[4]{
+\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+        \textbf{#1} & #2 \\
+        \textit{#3} & \textit{#4} \\
+\end{tabular*}\vspace{-6pt}}
+%-----------------------------------------------------------
+
+
+\begin{document}
+
+\begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
+\textbf{\Large Andr\'e Abadesso} & \textbf{29 de Abril, 2014} \\
+andre.abadesso@gmail.com & http://andreabades.so/ \\
+(21) 99985-8806 & http://github.com/andreabadesso/ \\
+\end{tabular*}
+\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Experi\^encia}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+
+\item
+
+    \ressubheading{GEO-RIO}{Rio de Janeiro, RJ}{Desenvolvedor}{2013 - Atual}
+
+    \begin{itemize}
+
+        \resitem{Desenvolvimento e manuten\c{c}\~ao do programa GEORISQ2, de georefer\^enciamento e mapeamento das \'areas de risco do Rio de Janeiro em \texttt{Java}}
+        \resitem{Desenvolvimento em parceria com a empresa \texttt{Squitter Ambiental} de aplicativo para a plataforma \texttt{Android} contendo todas as funcionalidades do site do Alerta-Rio (www0.rio.rj.gov.br/alertario/) em \texttt{Java}.}
+
+    \end{itemize}
+
+\item
+
+    \ressubheading{Centro de Opera\c{c}\~oes do Rio de Janeiro \textbf{(COR RIO)}}{Rio de Janeiro, RJ}{Desenvolvedor}{2013 - Atual}
+
+    \begin{itemize}
+
+        \resitem{Implementei a integra\c{c}\~ao dos servi\c{c}os de an\'alise de tr\^ansito do \texttt{Waze} \`a plataforma \texttt{Geoportal} em \texttt{Python} e \texttt{Javascript}.}
+
+    \resitem{Idealizei e implementei um mosaico de cameras para melhorar a visualiza\c{c}\~ao de pontos cr\'iticos da cidade.}
+    
+    \resitem{Idealizei e implementei uma plataforma de cria\c{c}\~ao e monitoramento de rotas importantes na cidade do Rio de Janeiro para facilitar a opera\c{c}\~ao do Centro de Opera\c{c}\~oes do Rio utilizando a API do \texttt{Google Maps for Business} em \texttt{Python}, \texttt{Coffescript} em cima do framework \texttt{Django} utilizando \texttt{MongoDB} no banco de dados.}
+    \resitem{Idealizei e implementei um aplicativo nas plataformas \texttt{iOS} e \texttt{Android} de uso interno do Centro de Opera\c{c}\~oes do Rio para notifica\c{c}\~ao de problemas na cidade por parte de suas bases de apoio espalhadas pela cidade.}
+    
+    \end{itemize}
+
+\item
+
+    \ressubheading{Lab 21k}{Rio de Janeiro, RJ}{Fundador}{2014 - Atual}
+
+    \begin{itemize}
+
+        \resitem{iCongresso - Aplicativo para organizadores de congressos, feiras e confer\^encias onde se encontram de forma resumida e na integra todas as informa\c{c}\~oes do evento. Desenvolvido em \texttt{Java} e \texttt{Objective-C} para as plataformas \texttt{Android} e \texttt{iOS}, usando \texttt{Django} em sua backend e \texttt{Amazon S3} para armazenamento e CDN de artigos e arquivos na "n\'uvem". (http://www.icongresso.com/)}
+
+    \resitem{IndiQ - Comunidade online que busca fazer a ponte entre lojas, produtos e pessoas em uma \'unica plataforma social, onde os usu\'arios podem ter uma experi\^encia personalizada de descoberta e compartilhamento de produtos das lojas de ecommerce no Brasil. Plataforma em desenvolvimento em \texttt{Python} utilizando a framework \texttt{Django}. (http://indiq.me/).}
+
+    \end{itemize}
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Educa\c{c}\~ao}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+\item \ressubheading{PUC-Rio}{Rio de Janeiro, RJ}{Bacharelado em Sistemas de Informa\c{c}\~ao}{2011 - Atual}
+\item \ressubheading{Cultura Inglesa}{Rio de Janeiro, RJ}{Curso de ingl\^es pela Cultura Inglesa}{2007-2011}
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Habilidades}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+
+\item {\bf Desenvolvimento:} Python, Javascript, Coffescript, Objective-C, JSON, Java, PHP, MongoDB, SQLite, SQL
+
+\item {\bf Frameworks:} Django, Flask, MeteorJS, AngularJS, NodeJS, Titanium, Laravel, Codeigniter
+
+\item {\bf Ferramentas:} OS X, Linux, Vim, Git, SVN, Github, Sublime Text, Vagrant
+
+\item Solu\c{c}\~ao de problemas e implementa\c{c}\~ao de novas id\'eias. Me d\^e uma API e me diga qual o problema que eu soluciono.
+
+\item Tendo contribuido em diversos projetos, de diferentes \'areas, estou pronto para rapidamente aprender e me adaptar \`a uma nova disciplina, \'area ou ambiente e rapidamente produzir resultados reais.
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Certificados}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \vspace{-2pt}
+    \begin{center}\begin{tabular*}{6.6in}{l@{\extracolsep{\fill}}r}
+        \multicolumn{2}{c}{Cambridge English: First(FCE) \cftdotfill{\cftdotsep} 2011}\\
+        \vphantom{E}
+\end{tabular*}
+\end{center}\vspace*{-16pt}
+
+
+\end{document}
