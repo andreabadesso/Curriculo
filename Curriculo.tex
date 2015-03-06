@@ -1,156 +1,236 @@
-% (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
-% (c) 2003-2007 David J. Grant <davidgrant-at-gmail.com> http://www.davidgrant.ca
-% (c) 2008 Nathaniel Johnston <nathaniel@nathanieljohnston.com> http://www.nathanieljohnston.com
+%	Copyright 2012 - 2015 Srinivas Kowtal (srinivaskay@gmail.com)
 %
-% (c) 2012 Scott Clark <sc932@cornell.edu> cam.cornell.edu/~sc932
+% Original copyright information follows below
 %
-%This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 2.5 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/2.5/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
+%% start of file `template.tex'.
+%% Copyright 2006-2010 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
 
-\documentclass[letterpaper,11pt]{article}
-\newlength{\outerbordwidth}
-\pagestyle{empty}
-\raggedbottom
-\raggedright
-\usepackage[svgnames]{xcolor}
-\usepackage{framed}
-\usepackage{tocloft}
+\documentclass[11pt,letterpaper]{moderncv}
 
+%\usepackage{hyperref}
+\usepackage{color}
+\usepackage{fontspec}
 
-%-----------------------------------------------------------
-%Edit these values as you see fit
+% moderncv themes
+% optional argument are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
+%\moderncvtheme[blue]{casual}                
+\moderncvtheme[blue]{classic}
+%\moderncvtheme[blue]{casual}                
 
-\setlength{\outerbordwidth}{3pt}  % Width of border outside of title bars
-\definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
-\definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
+% DOCUMENT LAYOUT
+\usepackage[scale=0.85]{geometry}
 
+\setlength{\hintscolumnwidth}{2.3cm} % if you want to change the width of the column with the dates
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+\AtBeginDocument{\recomputelengths} % required when changes are made to page layout lengths
 
-%-----------------------------------------------------------
-%Margin setup
+% CHARACTER ENCODING
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage[utf8]{inputenc}                 % replace by the encoding you are using
+\defaultfontfeatures{Mapping=tex-text}      % converts LaTeX specials (``quotes'' --- dashes
+                                            % etc.) to unicode
+% FONTS
+%\setromanfont [Ligatures={Common}, Numbers={OldStyle}]{Linux Libertine O}
+%\setmonofont[Scale=0.8]{DejaVuSansMono}
+%\setsansfont[Scale=0.9]{OptimaLTStd}
 
-\setlength{\evensidemargin}{-0.25in}
-\setlength{\headheight}{0in}
-\setlength{\headsep}{0in}
-\setlength{\oddsidemargin}{-0.25in}
-\setlength{\paperheight}{11in}
-\setlength{\paperwidth}{8.5in}
-\setlength{\tabcolsep}{0in}
-\setlength{\textheight}{9.5in}
-\setlength{\textwidth}{7in}
-\setlength{\topmargin}{-0.3in}
-\setlength{\topskip}{0in}
-\setlength{\voffset}{0.1in}
+% ---- CUSTOM AMPERSAND
+%\newcommand{\amper}{{\fontspec[Scale=.95]{Adobe Caslon Pro}\selectfont\itshape\&}}
 
+% ---- MARGIN YEARS
+%\newcommand{\years}[1]{\marginpar{\scriptsize #1}}
 
-%-----------------------------------------------------------
-%Custom commands
-\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
-\newcommand{\resheading}[1]{\vspace{8pt}
-  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
-    \begin{shaded}
-\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
-    \end{shaded}
-  }\vspace{-5pt}
-}
-\newcommand{\ressubheading}[4]{
-\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
-        \textbf{#1} & #2 \\
-        \textit{#3} & \textit{#4} \\
-\end{tabular*}\vspace{-6pt}}
-%-----------------------------------------------------------
+% personal data
+\firstname{André}
+\familyname{Abadesso}
+%\title{Srini Kowtal's Resume}                     % optional, remove the line if not wanted
+\address{Rua dos Jacarandás 300}{Barra da Tijuca, 22776-050} % optional, remove the line if not wanted
+\mobile{\texttt{(21)99985-8806}}              % optional, remove the line if not wanted
+%\phone{\texttt{+91-9000012854}}               % optional, remove the line if not wanted
+%\fax{fax (optional)}                          % optional, remove the line if not wanted
+\email{andre@lab21k.com.br}                      % optional, remove the line if not wanted
+%\extrainfo{https://github.com/zhaphod} % optional, remove the line if not wanted
 
+\homepage{github.com/andreabadesso}                % optional, remove the line if not wanted
+%\extrainfo{Programmer} % optional, remove the line if not wanted
+%\photo[64pt]{dont_panic.png}% '64pt' is the height the picture must be resized to and 'picture' is the name of the picture file; optional, remove the line if not wanted
+%\quote{ Circuit bender, kernel hacker, robot builder, urban explorer, trombone playerer.}
+% to show numerical labels in the bibliography; only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
 
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+
+\nopagenumbers{}% uncomment to suppress automatic page numbering for CVs longer than one page
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
 \begin{document}
 
-\begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
-\textbf{\Large Andr\'e Abadesso} & \textbf{29 de Abril, 2014} \\
-andre.abadesso@gmail.com & http://andreabades.so/ \\
-(21) 99985-8806 & http://github.com/andreabadesso/ \\
-\end{tabular*}
-\\
+\maketitle
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheading{Experi\^encia}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Qualificações}
+\cvline{}
+	{
+		\begin{itemize}
+		    \item Contribuidor em diversos projetos open-source
+		    \item Extenso conhecimento em padrões de design para desenvolvimento web
+		    \item Desenvolvedor Full-Stack, com grande experiência em todas as camadas de uma aplicação web
+		\end{itemize}}{}{}{}{}
 
-\begin{itemize}
+\section{Experiência Técnica}
+	 \cvline{Linguagens}{Javascript, Python, Java, Scala}
+	 \cvline{OS}{OSX, Linux, FreeBSD}
+	 \cvline{Bancos de Dados}{PostgreSQL, MSSQL, MySQL, MongoDB, REDIS, Neo4j}
+	 \cvline{Ferramentas}{Vim, Tmux, Zsh, Grunt, Bower, Pip}
+	 \cvline{Controle de versão}{Git, SVN}
+	 \cvline{Frameworks}{AngularJS, NodeJS, ReactJS, Django, Flask, Tornado, Play (Java e Scala)}
+	 \cvline{HW}{Raspberry Pi, Arduino, PIC (Turbo-C)}
+	 
+\cvline  {}{}
 
-\item
+\section{Educação}
+	 \cventry{}{Bacharelado em Sistemas de Informação}{PUC-RIO}{}{}{}
+	 \cventry{}{Cultura Inglesa}{Curso de inglês pela Cultura Inglesa}{}{}{}
 
-    \ressubheading{GEO-RIO}{Rio de Janeiro, RJ}{Desenvolvedor}{2013 - Atual}
+\cvline  {}{}
 
-    \begin{itemize}
+\section{Linguagens}
+\cvlanguage{Português}{Nativo}{}
+\cvlanguage{Inglês}{Fluente}{}
+\cvlanguage{Espanhol}{Básico}{}
 
-        \resitem{Desenvolvimento e manuten\c{c}\~ao do programa GEORISQ2, de georefer\^enciamento e mapeamento das \'areas de risco do Rio de Janeiro em \texttt{Java}}
-        \resitem{Desenvolvimento em parceria com a empresa \texttt{Squitter Ambiental} de aplicativo para a plataforma \texttt{Android} contendo todas as funcionalidades do site do Alerta-Rio (www0.rio.rj.gov.br/alertario/) em \texttt{Java}.}
 
-    \end{itemize}
+\clearpage
 
-\item
+\section{Experiência Profissional} 
+		\cventry {Jan14-Atual}{21k}{}{}{}{}
+    \subsection{Analista Sr. / Gerente de Produto}	
+    \cvlistitem  {Coordenei o desenvolvimento do aplicativo e plataforma iCongresso de gestão de congressos (http://icongresso.com/). O sistema auxilia organizadores de eventos e congressos na coordenação do evento e ao mesmo tempo serve como fonte principal de informação para participantes dele. A camada de negócios foi desenvolvida em Python, utilizando a framework Django. A camada de apresentação foi desenvolvida utilizando Java e Objective-C. A camada de dados utiliza MongoDB. Foi utilizado armazenamento em núvem S3 da Amazon (AWS) para armazenar os artigos e imagens dos palestrantes.}		
+		\cvlistitem  {Desenvolvi a plataforma IndiQ (http://indiq.me/) - Comunidade online que busca fazer a ponte entre lojas, produtos e pessoas em uma única plataforma social, onde os usuários podem ter uma experiência personalizada de descoberta e compartilhamento de produtos das lojas de ecommerce no Brasil. Trabalhei diretamente no desenvolvimento full-stack da aplicação, que utiliza Python (Django) na camada de negócios e AngularJS na camada de apresentação.}
 
-    \ressubheading{Centro de Opera\c{c}\~oes do Rio de Janeiro \textbf{(COR RIO)}}{Rio de Janeiro, RJ}{Desenvolvedor}{2013 - Atual}
+		\cvlistitem  {Liderei uma equipe de 3 desenvolvedores e trabalhei diretamente no desenvolvimento da aplicação S4C, sistema georeferenciado de gestão situacional.}
 
-    \begin{itemize}
+	\cventry{Nov13-Out14}{Centro de Operações Rio}{}{}{}{}
+    \subsection{Desenvolvedor}
+		\cvlistitem  {Implementei a integração do sistema Geoportal com os serviços de análise de trânsito do Waze. Integração ponto a ponto utilizando um script desenvolvido em Python e executado através de um Scheduler também desenvolvido por mim.}
+    \cvlistitem  {Idealizei e implementei em forma de extensão ao sistema Geoportal um mosaico interativo de cameras, que permite ao operador visualizar diversas cameras da cidade em uma interface única.}
+    \cvlistitem  {Idealizei e implementei uma plataforma de criação e monitoramento de rotas importantes na cidade do Rio de Janeiro para facilitar a operação do Centro de Operações utilizando a API do Google Maps for Business em Python, em cima do framework Django utilizando PostgreSQL na camada de dados. Na camada de apresentação, foi utilizada a framework AngularJS e o mapa do Google Maps. Este sistema foi extensamente utilizado durante a Copa do Mundo de 2014 para monitorar as rotas dos deslocamentos que as seleções fizeram dos hotéis até os campos de treinamento/partida.}
+    \cvlistitem{Integrei a plataforma de criação e monitoramento de Rotas com os relógios digitais da cidade do Rio de Janeiro. Cada relógio digital exibe o tempo de duas possíveis rotas partindo de sua posição geográfica. O objetivo é auxiliar o motorista a escolher a rota com o menor tempo e com isso, melhorar o trânsito na cidade.}
+    \cvlistitem{Trabalhei no desenvolvimento de um aplicativo para o Google Glass que integra funcionalidades do Geoportal como Datamining, Tarefas e Envio de Incidentes. Um MVP foi construido onde era possível enviar fotos direto para o sistema e atualizar a posição do usuário em tempo real.}
+    \cvlistitem{Idealizei e desenvolvi aplicativo mobile para as plataformas iOS e Android de uso interno do Centro de Operações para notificação de problemas na cidade por parte de suas bases de apoio espalhadas pela cidade.}
 
-        \resitem{Implementei a integra\c{c}\~ao dos servi\c{c}os de an\'alise de tr\^ansito do \texttt{Waze} \`a plataforma \texttt{Geoportal} em \texttt{Python} e \texttt{Javascript}.}
+\clearpage
 
-    \resitem{Idealizei e implementei um mosaico de cameras para melhorar a visualiza\c{c}\~ao de pontos cr\'iticos da cidade.}
+ \cventry {Mar13-Set13}{GEO-RIO}{}{}{}{}
+    \subsection{Estagiário}
+    \cvlistitem  {Atuei no desenvolvimento e manutenção do programa GEORISQ2, sistema GIS que cuida do georeferenciamento de obras da fundação e mapeamento das áreas de risco da cidade. Como a empresa não possuia uma equipe de desenvolvimento, fui o único desenvolvedor no periodo em contato com a plataforma.}
+    \cvlistitem  {Desenvolvi, em parceiria com a empresa Squitter Ambiental, aplicativo para Android e Iphone contendo todas as funcionalidades do site Alerta-Rio (http://www0.rio.rj.gov.br/alertario/). Sistema desenvolvido em AngularJS utilizando uma framework de webapps (Ionic).}
     
-    \resitem{Idealizei e implementei uma plataforma de cria\c{c}\~ao e monitoramento de rotas importantes na cidade do Rio de Janeiro para facilitar a opera\c{c}\~ao do Centro de Opera\c{c}\~oes do Rio utilizando a API do \texttt{Google Maps for Business} em \texttt{Python}, \texttt{Coffescript} em cima do framework \texttt{Django} utilizando \texttt{MongoDB} no banco de dados.}
-    \resitem{Idealizei e implementei um aplicativo nas plataformas \texttt{iOS} e \texttt{Android} de uso interno do Centro de Opera\c{c}\~oes do Rio para notifica\c{c}\~ao de problemas na cidade por parte de suas bases de apoio espalhadas pela cidade.}
+    \cventry {Jan13-Mai13}{Ninho dos Corujas - http://www.ninhodoscorujas.com.br}{}{}{}{}
+    \subsection{\small\emph{Freelance, Desenvolvedor Fullstack}}
+    \cvlistitem  {Desenvolvimento fullstack do ecommerce Ninho dos Corujas}
+    \cvlistitem  {Desenvolvi o backend e o frontend do website Ninho dos Corujas. O Backend da aplicação é uma API RESTful que utiliza a framework Django, em Python. A camada de apresentação da aplicação utiliza AngularJS como framework principal, que cuida do carrinho do usuário e de toda a lógica do chá de bebê online.}
+    \cventry {Fev13-Mar13}{CornetaRIO}{}{}{}{}
+    \subsection{\small\emph{Desenvolvedor Full-Stack}}
+    \cvlistitem{Desenvolvimento, em parceiria com a empresa Synapse, Inovadora da incubadora Genesis da PUC-RIO do aplicativo mobile CornetaRIO para as plataformas iOS e Android.  É um instagram para alertas de mobilidade urbana, através dele o usuário pode compartilhar os problemas da cidade e comentar em outras publicações com sugestões sobre o que melhorar. O aplicativo foi desenvolvido em AngularJS na camada de apresentação, NodeJS na camada de negócios e MongoDB na camada de dados.}
     
-    \end{itemize}
 
-\item
+\cvline  {}{}
 
-    \ressubheading{Lab 21k}{Rio de Janeiro, RJ}{Fundador}{2014 - Atual}
+\section{Cursos}
+    \cventry{2015}{Full Stack Web Developer Nanodegree}{Udacity}{}{}{}
+    \cventry{2015}{Business Process Application Development}{Bonitasoft}{}{}{}
+    \cventry{2014}{Stanford - Algorithms: Design and Analysis, Part 1}{Coursera}{}{}{}
+	\cventry{2014}{Stanford - Algorithms: Design and Analysis, Part 2}{Coursera}{}{}{}
+	\cventry{2014}{Advanced Node.js Development}{Udemy}{}{}{}	
+    \cventry{2013}{Stanford - Startup Engineering}{Coursera}{}{}{}
 
-    \begin{itemize}
+\cvline  {}{}
+\section{Certificados}
+	%\cventry {At QCom}{I was given ``QualStar'' award for contributions to the LGE V510 Tablet project}{}{}{}{}
 
-        \resitem{iCongresso - Aplicativo para organizadores de congressos, feiras e confer\^encias onde se encontram de forma resumida e na integra todas as informa\c{c}\~oes do evento. Desenvolvido em \texttt{Java} e \texttt{Objective-C} para as plataformas \texttt{Android} e \texttt{iOS}, usando \texttt{Django} em sua backend e \texttt{Amazon S3} para armazenamento e CDN de artigos e arquivos na "n\'uvem". (http://www.icongresso.com/)}
+	\subsection{\emph{Cambridge English: First (FCE)}}
+	\subsection{\emph{Bonitasoft: Business Process Application Development}}
+\cvline  {}{}
 
-    \resitem{IndiQ - Comunidade online que busca fazer a ponte entre lojas, produtos e pessoas em uma \'unica plataforma social, onde os usu\'arios podem ter uma experi\^encia personalizada de descoberta e compartilhamento de produtos das lojas de ecommerce no Brasil. Plataforma em desenvolvimento em \texttt{Python} utilizando a framework \texttt{Django}. (http://indiq.me/).}
+\cvline {}{}
 
-    \end{itemize}
-
-\end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheading{Educa\c{c}\~ao}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{itemize}
-
-\item \ressubheading{PUC-Rio}{Rio de Janeiro, RJ}{Bacharelado em Sistemas de Informa\c{c}\~ao}{2011 - Atual}
-\item \ressubheading{Cultura Inglesa}{Rio de Janeiro, RJ}{Curso de ingl\^es pela Cultura Inglesa}{2007-2011}
-\end{itemize}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheading{Habilidades}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{itemize}
-
-\item {\bf Desenvolvimento:} Python, Javascript, Coffescript, Objective-C, JSON, Java, PHP, MongoDB, SQLite, SQL
-
-\item {\bf Frameworks:} Django, Flask, MeteorJS, AngularJS, NodeJS, Titanium, Laravel, Codeigniter
-
-\item {\bf Ferramentas:} OS X, Linux, Vim, Git, SVN, Github, Sublime Text, Vagrant
-
-\item Solu\c{c}\~ao de problemas e implementa\c{c}\~ao de novas id\'eias. Me d\^e uma API e me diga qual o problema que eu soluciono.
-
-\item Tendo contribuido em diversos projetos, de diferentes \'areas, estou pronto para rapidamente aprender e me adaptar \`a uma nova disciplina, \'area ou ambiente e rapidamente produzir resultados reais.
-
-\end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheading{Certificados}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \vspace{-2pt}
-    \begin{center}\begin{tabular*}{6.6in}{l@{\extracolsep{\fill}}r}
-        \multicolumn{2}{c}{Cambridge English: First(FCE) \cftdotfill{\cftdotsep} 2011}\\
-        \vphantom{E}
-\end{tabular*}
-\end{center}\vspace*{-16pt}
-
-
+\begin{center}
+\color{gray}\Large{$\nu\epsilon$ $\pi\alpha\beta o \rho$}
+\end{center}
+	
 \end{document}
+
+
+%\section{Experience}
+%\subsection{Vocational}
+%\cventry{year--year}{Job title}{Employer}{City}{}{General description no longer than 1--2 lines.\newline%
+%Detailed achievements:%
+%\begin{itemize}%
+%\item Achievement 1;
+%\item Achievement 2, with sub-achievements:
+%  \begin{itemize}%
+%  \item Sub-achievement (a);
+%  \item Sub-achievement (b), with sub-sub-achievements (don't do this!);
+%    \begin{itemize}
+%    \item Sub-sub-achievement i;
+%    \item Sub-sub-achievement ii;
+%    \item Sub-sub-achievement iii;
+%    \end{itemize}
+%  \item Sub-achievement (c);
+%  \end{itemize}
+%\item Achievement 3.
+%\end{itemize}}
+%\cventry{year--year}{Job title}{Employer}{City}{}{Description line 1\newlineDescription line 2}
+%\subsection{Miscellaneous}
+%\cventry{year--year}{Job title}{Employer}{City}{}{Description}
+
+
+%\section{Computer skills}
+%\cvcomputer{category 1}{XXX, YYY, ZZZ}{category 4}{XXX, YYY, ZZZ}
+%\cvcomputer{category 2}{XXX, YYY, ZZZ}{category 5}{XXX, YYY, ZZZ}
+%\cvcomputer{category 3}{XXX, YYY, ZZZ}{category 6}{XXX, YYY, ZZZ}
+
+%\section{Interests}
+%\cvline{hobby 1}{\small Description}
+%\cvline{hobby 2}{\small Description}
+%\cvline{hobby 3}{\small Description}
+
+%\section{Extra 1}
+%\cvlistitem{Item 1}
+%\cvlistitem{Item 2}
+%\cvlistitem[+]{Item 3}            % optional other symbol
+
+%\renewcommand{\listitemsymbol}{-} % change the symbol for lists
+
+%\section{Extra 2}
+%\cvlistdoubleitem{Item 1}{Item 4}
+%\cvlistdoubleitem{Item 2}{Item 5 \cite{book1}}
+%\cvlistdoubleitem{Item 3}{}
+
+% Publications from a BibTeX file without multibib\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% for BibTeX numerical labels
+%\nocite{*}
+%\bibliographystyle{plain}
+%\bibliography{publications}       % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}   % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}   % 'publications' is the name of a BibTeX file
+
+
+%% end of file `template_en.tex'.
+
